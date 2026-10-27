@@ -449,7 +449,7 @@ footer{padding-block:48px 72px;color:var(--on-water-muted);font-size:13px;positi
   .stage{margin-top:14px}
   .hn{font-size:clamp(27px,8.6vw,35px);line-height:1.02}
   .hn-r{margin-top:0}
-  .stage .me{height:clamp(200px,40svh,300px);margin:8px 0 -20px}
+  .stage .me{height:clamp(200px,37svh,280px);margin:8px 0 -20px}
   .floaters{margin-top:-40px}
   .fcard{padding:7px 8px 8px}
   .fcard b{font-size:16px}
@@ -495,6 +495,11 @@ footer{padding-block:48px 72px;color:var(--on-water-muted);font-size:13px;positi
 @keyframes surfbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @media (max-width:640px){.surf{bottom:calc(46px + env(safe-area-inset-bottom,0px));padding:7px 12px 7px 10px;font-size:12px}}
 @media (prefers-reduced-motion: reduce){.surf.on{animation:none}}
+
+.hero .eyebrow{font-size:12.5px;letter-spacing:.1em;opacity:1;color:#3E5873}
+.hero .eyebrow .roles{color:#1F5F99;font-weight:500}
+.hero .eyebrow .mbr{display:none}
+@media (max-width:640px){.hero .eyebrow{font-size:10px;letter-spacing:.06em;line-height:1.6}.hero .eyebrow .s2{display:none}.hero .eyebrow .mbr{display:inline}}
 </style>
 
 <nav class="nav" aria-label="Main">
@@ -565,7 +570,7 @@ footer{padding-block:48px 72px;color:var(--on-water-muted);font-size:13px;positi
 
   <header class="hero" id="top" data-zone="The tip">
     <div class="wrap">
-      <p class="eyebrow">Operations · Projects · Data · Bangkok</p>
+      <p class="eyebrow"><span class="roles">Operations · Project Management<span class="s2"> · </span><br class="mbr">Business Analysis · Data</span> · Bangkok</p>
       <h1 class="sr-only">Arriya Naoprakhon</h1>
       <div class="stage">
         <span class="hn hn-l" aria-hidden="true"><span class="im">I’m</span> Arriya</span>
