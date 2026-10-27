@@ -374,7 +374,8 @@ canvas#sketch{width:100%;max-width:100%;aspect-ratio:4/3;border-radius:16px;bord
 .small:hover{border-color:var(--accent)}
 
 /* contact */
-.contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.contact{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1.2fr) minmax(0,.85fr);gap:16px}
+@media (max-width:980px){.contact{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.contact{grid-template-columns:1fr}}
 .ct{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0;border-radius:16px}
 .ct .v{font-size:16px;font-weight:500;word-break:break-all}
@@ -589,7 +590,7 @@ footer{padding-block:48px 72px;color:var(--on-water-muted);font-size:13px;positi
           <div class="cta">
             <a class="btn primary" href="#about">Dive in ↓</a>
             <a class="btn ghost" href="#work">See my experience</a>
-            <a class="btn ghost" href="https://drive.google.com/file/d/1EgXhY6N0Q4e2Be6XREzrCgUS00uWuVhD/view?usp=sharing" target="_blank" rel="noopener">Resume (PDF)</a>
+            <a class="btn ghost" href="https://arriya-n.github.io/Arriya_Naoprakhon_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
           </div>
         </div>
         <div class="b-right">
@@ -887,9 +888,8 @@ footer{padding-block:48px 72px;color:var(--on-water-muted);font-size:13px;positi
       </div>
       <div class="contact">
         <div class="ct panel"><div><p class="label">Email</p><span class="v">arriya.naoprakhon@gmail.com</span></div><button class="small" data-copy="arriya.naoprakhon@gmail.com" type="button">Copy</button></div>
-        <div class="ct panel"><div><p class="label">Phone</p><span class="v">+66 96 258 2779</span></div><button class="small" data-copy="+66962582779" type="button">Copy</button></div>
         <div class="ct panel"><div><p class="label">LinkedIn</p><a class="v" href="https://www.linkedin.com/in/arriya-naoprakhon" target="_blank" rel="noopener">linkedin.com/in/arriya-naoprakhon ↗</a></div></div>
-        <div class="ct panel"><div><p class="label">Resume</p><a class="v" href="https://drive.google.com/file/d/1EgXhY6N0Q4e2Be6XREzrCgUS00uWuVhD/view?usp=sharing" target="_blank" rel="noopener">View resume (PDF) ↗</a></div></div>
+        <div class="ct panel"><div><p class="label">Resume</p><a class="v" href="https://arriya-n.github.io/Arriya_Naoprakhon_Resume.pdf" target="_blank" rel="noopener">View resume (PDF) ↗</a></div></div>
       </div>
     </div>
   </section>
