@@ -1101,12 +1101,17 @@ footer{padding-block:48px 72px;color:var(--on-water-muted);font-size:13px;positi
   var c=document.getElementById('sketch'), ctx=c.getContext('2d'), drawing=false, last=null;
   function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
   function seed(w,h){ctx.clearRect(0,0,w,h);ctx.fillStyle=css('--muted');ctx.font='13px "IBM Plex Mono", monospace';ctx.fillText('draw something →',16,h-18)}
-  function sizeC(){var r=c.getBoundingClientRect(),d=devicePixelRatio||1;c.width=Math.round(r.width*d);c.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);seed(r.width,r.height)}
+  var cw=0,ch=0,inked=false;
+  function sizeC(){var r=c.getBoundingClientRect(),d=devicePixelRatio||1,w=Math.round(r.width*d),h=Math.round(r.height*d);
+    if(!w||!h||(w===cw&&h===ch))return;
+    var keep=null;if(inked&&cw&&ch){keep=document.createElement('canvas');keep.width=cw;keep.height=ch;keep.getContext('2d').drawImage(c,0,0)}
+    c.width=cw=w;c.height=ch=h;ctx.setTransform(d,0,0,d,0,0);
+    if(keep){ctx.drawImage(keep,0,0,r.width,r.height)}else{seed(r.width,r.height)}}
   function pos(e){var r=c.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top}}
   c.addEventListener('pointerdown',function(e){drawing=true;last=pos(e);c.setPointerCapture(e.pointerId)});
-  c.addEventListener('pointermove',function(e){if(!drawing)return;var p=pos(e);ctx.strokeStyle=css('--ink');ctx.lineWidth=2.4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p});
+  c.addEventListener('pointermove',function(e){if(!drawing)return;var p=pos(e);ctx.strokeStyle=css('--ink');ctx.lineWidth=2.4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;inked=true});
   ['pointerup','pointercancel','pointerleave'].forEach(function(ev){c.addEventListener(ev,function(){drawing=false})});
-  document.getElementById('clearSketch').addEventListener('click',function(){var r=c.getBoundingClientRect();seed(r.width,r.height)});
+  document.getElementById('clearSketch').addEventListener('click',function(){var r=c.getBoundingClientRect();inked=false;seed(r.width,r.height)});
   addEventListener('resize',sizeC); sizeC();
 })();
 </script>
